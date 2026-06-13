@@ -1,0 +1,19 @@
+📸 PHOTOS DU SITE — MODE D'EMPLOI
+
+✨ LE PLUS IMPORTANT : le dossier galerie/ est AUTOMATIQUE !
+Dépose une nouvelle photo dans images/galerie/ (n'importe quel nom,
+en .jpg, .png ou .webp) et elle apparaît toute seule :
+  - dans le carrousel de la page d'accueil (les 12 plus récentes)
+  - sur la page "Toutes mes créations" (toutes les photos)
+Rien d'autre à faire, aucun code à modifier. Pour retirer une photo,
+il suffit de supprimer le fichier.
+
+Photos fixes (à remplacer en gardant le même nom si besoin) :
+  camion.jpg          → grande photo du flower truck (section "Le concept")
+  banniere-reves.jpg  → bannière "Crois en tes rêves"
+
+Le dossier archives/ contient les photos non utilisées (affiches,
+QR code Instagram…) — rien n'est supprimé.
+
+Conseil : format JPG, ~1200 px de large maximum, c'est largement
+suffisant pour le web et la page reste rapide à charger.
