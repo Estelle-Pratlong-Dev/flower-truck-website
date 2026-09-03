@@ -1,3 +1,6 @@
+# Identifiants de la page d'administration (voir inc/admin-config.example.php)
+inc/admin-config.php
+
 # Fichiers système
 Thumbs.db
 desktop.ini

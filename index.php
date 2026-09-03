@@ -1,17 +1,9 @@
 <?php
-// Les photos de la galerie sont détectées automatiquement :
-// il suffit d'en déposer dans le dossier images/galerie/
-$dossierGalerie = __DIR__ . '/images/galerie';
-$photos = array_values(array_filter(scandir($dossierGalerie), function ($f) {
-  return preg_match('/\.(jpe?g|png|webp)$/i', $f);
-}));
-// Les plus récentes d'abord
-usort($photos, function ($a, $b) use ($dossierGalerie) {
-  return filemtime("$dossierGalerie/$b") <=> filemtime("$dossierGalerie/$a")
-    ?: strnatcasecmp($a, $b);
-});
+require __DIR__ . '/inc/photos.php';
 // Le carrousel affiche les 12 dernières ; tout est sur la page galerie
 $photosCarrousel = array_slice($photos, 0, 12);
+
+$navActuel = 'accueil';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -28,21 +20,7 @@ $photosCarrousel = array_slice($photos, 0, 12);
 </head>
 <body>
 
-  <!-- ===== Navigation ===== -->
-  <header class="nav" id="top">
-    <a class="nav__brand" href="#top">
-      <span class="nav__logo">Manalex Fleurs</span>
-    </a>
-    <nav class="nav__links" id="navLinks">
-      <a href="#concept">Le concept</a>
-      <a href="#planning">Où me retrouver</a>
-      <a href="#creations">Mes créations</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+  <?php include __DIR__ . '/inc/nav.php'; ?>
 
   <!-- ===== Hero ===== -->
   <section class="hero">
@@ -65,12 +43,16 @@ $photosCarrousel = array_slice($photos, 0, 12);
   </section>
 
   <!-- ===== Bandeau ===== -->
-  <div class="ribbon">
-    <span>🌸 Fleurs fraîches</span><span>💐 Bouquets de saison</span><span>🪴 Plantes</span><span>🎀 Créations florales</span><span>💚 Soutenons le local</span>
-  </div>
+  <ul class="ribbon">
+    <li>🌸 Fleurs fraîches</li>
+    <li>💐 Bouquets de saison</li>
+    <li>🪴 Plantes</li>
+    <li>🎀 Créations florales</li>
+    <li>💚 Soutenons le local</li>
+  </ul>
 
   <!-- ===== Concept ===== -->
-  <section class="section concept" id="concept">
+  <section class="section concept reveal" id="concept">
     <div class="section__inner concept__grid">
       <figure class="concept__photo">
         <img src="images/camion.jpg" alt="Le camion fleuri de Manalex Fleurs, ouvert sur un marché" data-fallback="🚚🌷">
@@ -92,34 +74,34 @@ $photosCarrousel = array_slice($photos, 0, 12);
   </section>
 
   <!-- ===== Planning ===== -->
-  <section class="section planning" id="planning">
+  <section class="section planning reveal" id="planning">
     <div class="section__inner">
       <p class="section__kicker section__kicker--center">Cette semaine</p>
       <h2 class="section__title section__title--center">Où me retrouver&nbsp;?</h2>
       <p class="planning__intro">Venez découvrir mes créations florales et passer un moment convivial&nbsp;!&nbsp;♡</p>
 
       <div class="planning__grid">
-        <article class="card">
+        <article class="card reveal">
           <div class="card__icon">🏛️</div>
           <p class="card__day">Mercredi matin</p>
           <h3 class="card__place">Marché de Gagnières</h3>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <div class="card__icon">🏛️</div>
           <p class="card__day">Jeudi matin</p>
           <h3 class="card__place">Marché de Bessèges</h3>
         </article>
-        <article class="card card--soir">
+        <article class="card card--soir reveal">
           <div class="card__icon">✨</div>
           <p class="card__day">Jeudi soir</p>
           <h3 class="card__place">Guinguette de La Carabiole</h3>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <div class="card__icon">🏛️</div>
           <p class="card__day">Vendredi matin</p>
           <h3 class="card__place">Marché de Molières-sur-Cèze</h3>
         </article>
-        <article class="card">
+        <article class="card reveal">
           <div class="card__icon">🏛️</div>
           <p class="card__day">Dimanche matin</p>
           <h3 class="card__place">Place de la Mairie, Bordezac</h3>
@@ -131,12 +113,15 @@ $photosCarrousel = array_slice($photos, 0, 12);
   </section>
 
   <!-- ===== Carrousel des créations ===== -->
-  <section class="section creations" id="creations">
+  <section class="section creations reveal" id="creations">
     <div class="section__inner">
       <p class="section__kicker section__kicker--center">La galerie</p>
       <h2 class="section__title section__title--center">Mes créations</h2>
       <p class="creations__intro">Un aperçu de mes dernières créations — survolez pour mettre en pause&nbsp;!</p>
     </div>
+    <?php if (count($photosCarrousel) === 0): ?>
+    <p class="etat-vide">Les premières créations arrivent bientôt… revenez vite&nbsp;! 🌷</p>
+    <?php else: ?>
     <div class="carousel" aria-label="Carrousel des créations florales">
       <div class="carousel__track" style="--nb: <?= count($photosCarrousel) ?>">
         <?php for ($tour = 0; $tour < 2; $tour++): ?>
@@ -148,6 +133,7 @@ $photosCarrousel = array_slice($photos, 0, 12);
         <?php endfor; ?>
       </div>
     </div>
+    <?php endif; ?>
     <div class="creations__more">
       <a class="btn btn--ghost" href="galerie.php">🌸 Voir toute la galerie</a>
     </div>
@@ -155,11 +141,11 @@ $photosCarrousel = array_slice($photos, 0, 12);
 
   <!-- ===== Bannière ===== -->
   <section class="banner">
-    <img src="images/banniere-reves.jpg" alt="Le flower truck au coucher du soleil — Crois en tes rêves et ils se réaliseront">
+    <img src="images/banniere-reves.jpg" alt="Le flower truck au coucher du soleil — Crois en tes rêves et ils se réaliseront" data-fallback="🌅🚚">
   </section>
 
   <!-- ===== Commandes ===== -->
-  <section class="section commande">
+  <section class="section commande reveal">
     <div class="section__inner commande__box">
       <h2 class="commande__title">Une envie particulière&nbsp;?</h2>
       <p>Mariage, anniversaire, événement, ou simplement l'envie de faire plaisir&nbsp;: je réalise vos <strong>compositions sur commande</strong>. Passez me voir sur un marché ou contactez-moi&nbsp;!</p>
@@ -167,67 +153,8 @@ $photosCarrousel = array_slice($photos, 0, 12);
     </div>
   </section>
 
-  <!-- ===== Contact / Footer ===== -->
-  <footer class="footer" id="contact">
-    <div class="section__inner footer__grid">
-      <div>
-        <p class="footer__logo">Manalex Fleurs</p>
-        <p class="footer__sub">— Flowers Truck —</p>
-        <p class="footer__tag">Au plaisir de vous y retrouver&nbsp;!&nbsp;♡</p>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <ul class="footer__list">
-          <li>📞 <a href="tel:+33622581230">06 22 58 12 30</a></li>
-          <li>✉️ <a href="mailto:manalex.flowerstruck@gmail.com">manalex.flowerstruck@gmail.com</a></li>
-          <li>📍 Cévennes — Gard (30)</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Suivez-moi</h3>
-        <ul class="footer__list">
-          <li>📘 <a href="https://www.facebook.com/profile.php?id=61587362490442" target="_blank" rel="noopener">Facebook — Manalex Fleurs</a></li>
-          <li>📸 <a href="https://www.instagram.com/manalex.flowerstruck" target="_blank" rel="noopener">Instagram — @manalex.flowerstruck</a></li>
-          <!-- Page Google Entreprise : décommenter et coller le lien quand elle sera créée
-          <li>⭐ <a href="LIEN_GOOGLE" target="_blank" rel="noopener">Laissez un avis Google</a></li>
-          -->
-        </ul>
-      </div>
-    </div>
-    <p class="footer__bottom">🌿 Soutenons le local — merci&nbsp;! 🌿<br><small>© 2026 Manalex Fleurs · Flowers Truck</small></p>
-  </footer>
+  <?php include __DIR__ . '/inc/footer.php'; ?>
 
-  <script>
-    // Menu mobile
-    const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('navLinks');
-    burger.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', open);
-    });
-    navLinks.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => navLinks.classList.remove('is-open'))
-    );
-
-    // Photos manquantes : on affiche un joli espace réservé en attendant
-    // de déposer les vraies photos dans le dossier images/
-    document.querySelectorAll('img[data-fallback]').forEach(img => {
-      img.addEventListener('error', () => {
-        const ph = document.createElement('div');
-        ph.className = 'placeholder';
-        ph.innerHTML = '<span>' + img.dataset.fallback + '</span><small>Photo à venir</small>';
-        img.replaceWith(ph);
-      });
-    });
-
-    // Apparition douce des sections au défilement
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('is-visible'));
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.section, .card, .gallery figure').forEach(el => {
-      el.classList.add('reveal');
-      observer.observe(el);
-    });
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,14 +1,7 @@
 <?php
-// Toutes les photos du dossier images/galerie/ sont affichées
-// automatiquement, des plus récentes aux plus anciennes.
-$dossierGalerie = __DIR__ . '/images/galerie';
-$photos = array_values(array_filter(scandir($dossierGalerie), function ($f) {
-  return preg_match('/\.(jpe?g|png|webp)$/i', $f);
-}));
-usort($photos, function ($a, $b) use ($dossierGalerie) {
-  return filemtime("$dossierGalerie/$b") <=> filemtime("$dossierGalerie/$a")
-    ?: strnatcasecmp($a, $b);
-});
+require __DIR__ . '/inc/photos.php';
+
+$navActuel = 'galerie';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -25,21 +18,7 @@ usort($photos, function ($a, $b) use ($dossierGalerie) {
 </head>
 <body>
 
-  <!-- ===== Navigation ===== -->
-  <header class="nav" id="top">
-    <a class="nav__brand" href="index.php">
-      <span class="nav__logo">Manalex Fleurs</span>
-    </a>
-    <nav class="nav__links" id="navLinks">
-      <a href="index.php#concept">Le concept</a>
-      <a href="index.php#planning">Où me retrouver</a>
-      <a href="galerie.php" class="is-active">Mes créations</a>
-      <a href="index.php#contact">Contact</a>
-    </nav>
-    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+  <?php include __DIR__ . '/inc/nav.php'; ?>
 
   <!-- ===== En-tête de page ===== -->
   <section class="page-hero">
@@ -52,11 +31,11 @@ usort($photos, function ($a, $b) use ($dossierGalerie) {
   <section class="section galerie-page">
     <div class="section__inner">
       <?php if (count($photos) === 0): ?>
-      <p class="galerie-page__vide">Les photos arrivent bientôt… revenez vite&nbsp;! 🌷</p>
+      <p class="etat-vide">Les photos arrivent bientôt… revenez vite&nbsp;! 🌷</p>
       <?php else: ?>
       <div class="gallery gallery--page">
         <?php foreach ($photos as $p): ?>
-        <figure>
+        <figure class="reveal">
           <button class="gallery__zoom" type="button" aria-label="Agrandir la photo">
             <img src="images/galerie/<?= rawurlencode($p) ?>" alt="Création florale Manalex Fleurs" loading="lazy">
           </button>
@@ -76,46 +55,11 @@ usort($photos, function ($a, $b) use ($dossierGalerie) {
     <img id="lightboxImg" src="" alt="Création florale Manalex Fleurs en grand">
   </div>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer" id="contact">
-    <div class="section__inner footer__grid">
-      <div>
-        <p class="footer__logo">Manalex Fleurs</p>
-        <p class="footer__sub">— Flowers Truck —</p>
-        <p class="footer__tag">Au plaisir de vous y retrouver&nbsp;!&nbsp;♡</p>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <ul class="footer__list">
-          <li>📞 <a href="tel:+33622581230">06 22 58 12 30</a></li>
-          <li>✉️ <a href="mailto:manalex.flowerstruck@gmail.com">manalex.flowerstruck@gmail.com</a></li>
-          <li>📍 Cévennes — Gard (30)</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Suivez-moi</h3>
-        <ul class="footer__list">
-          <li>📘 <a href="https://www.facebook.com/profile.php?id=61587362490442" target="_blank" rel="noopener">Facebook — Manalex Fleurs</a></li>
-          <li>📸 <a href="https://www.instagram.com/manalex.flowerstruck" target="_blank" rel="noopener">Instagram — @manalex.flowerstruck</a></li>
-          <!-- Page Google Entreprise : décommenter et coller le lien quand elle sera créée
-          <li>⭐ <a href="LIEN_GOOGLE" target="_blank" rel="noopener">Laissez un avis Google</a></li>
-          -->
-        </ul>
-      </div>
-    </div>
-    <p class="footer__bottom">🌿 Soutenons le local — merci&nbsp;! 🌿<br><small>© 2026 Manalex Fleurs · Flowers Truck</small></p>
-  </footer>
+  <?php include __DIR__ . '/inc/footer.php'; ?>
 
+  <script src="js/main.js"></script>
   <script>
-    // Menu mobile
-    const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('navLinks');
-    burger.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', open);
-    });
-
-    // Visionneuse plein écran
+    // Visionneuse plein écran — propre à la page galerie
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     document.querySelectorAll('.gallery__zoom').forEach(btn => {
@@ -132,15 +76,6 @@ usort($photos, function ($a, $b) use ($dossierGalerie) {
     lightbox.addEventListener('click', fermer);
     document.getElementById('lightboxClose').addEventListener('click', fermer);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') fermer(); });
-
-    // Apparition douce
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('is-visible'));
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.gallery figure').forEach(el => {
-      el.classList.add('reveal');
-      observer.observe(el);
-    });
   </script>
 </body>
 </html>
