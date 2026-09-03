@@ -1,0 +1,11 @@
+# Ce dossier ne contient que des fichiers inclus par PHP (nav, footer,
+# logique de la galerie, identifiants admin) — jamais des pages à visiter
+# directement. On bloque tout accès HTTP direct au dossier entier.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
