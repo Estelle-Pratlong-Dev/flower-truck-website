@@ -404,9 +404,28 @@ img { max-width: 100%; display: block; }
 .carousel__track {
   display: flex;
   width: max-content;
-  animation: defilement calc(var(--nb, 12) * 3.5s) linear infinite;
+  animation-name: defilement;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 .carousel:hover .carousel__track { animation-play-state: paused; }
+
+/* Vitesse du carrousel selon le nombre de photos (attribut data-nb posé par
+   index.php). Le nombre max de photos affichées étant plafonné à 12, une
+   règle par valeur possible suffit — pas besoin de style inline, qui serait
+   bloqué par la Content-Security-Policy (style-src 'self'). */
+.carousel__track[data-nb="1"]  { animation-duration: 3.5s; }
+.carousel__track[data-nb="2"]  { animation-duration: 7s; }
+.carousel__track[data-nb="3"]  { animation-duration: 10.5s; }
+.carousel__track[data-nb="4"]  { animation-duration: 14s; }
+.carousel__track[data-nb="5"]  { animation-duration: 17.5s; }
+.carousel__track[data-nb="6"]  { animation-duration: 21s; }
+.carousel__track[data-nb="7"]  { animation-duration: 24.5s; }
+.carousel__track[data-nb="8"]  { animation-duration: 28s; }
+.carousel__track[data-nb="9"]  { animation-duration: 31.5s; }
+.carousel__track[data-nb="10"] { animation-duration: 35s; }
+.carousel__track[data-nb="11"] { animation-duration: 38.5s; }
+.carousel__track[data-nb="12"] { animation-duration: 42s; }
 
 .carousel__group {
   display: flex;
@@ -621,6 +640,16 @@ img { max-width: 100%; display: block; }
 }
 .footer__credit a { color: var(--cream); text-decoration: none; }
 .footer__credit a:hover { color: var(--gold); text-decoration: underline; }
+
+/* ---------- Mentions légales ---------- */
+.legal h2 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--olive-deep);
+  margin: 2rem 0 0.6rem;
+}
+.legal p { max-width: 65ch; }
+.legal__retour { display: inline-block; margin-top: 2.5rem; }
 
 /* ---------- Animations d'apparition ---------- */
 .reveal {
