@@ -25,4 +25,5 @@
     </div>
   </div>
   <p class="footer__bottom">🌿 Soutenons le local — merci&nbsp;! 🌿<br><small>© 2026 Manalex Fleurs · Flowers Truck</small></p>
+  <p class="footer__credit">Site réalisé par <a href="https://estelle-pratlong.fr/" target="_blank" rel="noopener noreferrer">Estelle Pratlong</a></p>
 </footer>
