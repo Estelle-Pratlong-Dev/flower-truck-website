@@ -613,6 +613,15 @@ img { max-width: 100%; display: block; }
 }
 .footer__bottom small { font-weight: 400; opacity: 0.75; }
 
+.footer__credit {
+  text-align: center;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+.footer__credit a { color: var(--cream); text-decoration: none; }
+.footer__credit a:hover { color: var(--gold); text-decoration: underline; }
+
 /* ---------- Animations d'apparition ---------- */
 .reveal {
   opacity: 0;
