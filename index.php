@@ -123,7 +123,7 @@ $navActuel = 'accueil';
     <p class="etat-vide">Les premières créations arrivent bientôt… revenez vite&nbsp;! 🌷</p>
     <?php else: ?>
     <div class="carousel" aria-label="Carrousel des créations florales">
-      <div class="carousel__track" style="--nb: <?= count($photosCarrousel) ?>">
+      <div class="carousel__track" data-nb="<?= count($photosCarrousel) ?>">
         <?php for ($tour = 0; $tour < 2; $tour++): ?>
         <div class="carousel__group" <?= $tour ? 'aria-hidden="true"' : '' ?>>
           <?php foreach ($photosCarrousel as $p): ?>
