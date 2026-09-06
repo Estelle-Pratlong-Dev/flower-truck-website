@@ -1,6 +1,10 @@
 # Identifiants de la page d'administration (voir inc/admin-config.example.php)
 inc/admin-config.php
 
+# Anciennes versions de la bannière (gardées en local, pas besoin sur GitHub)
+images/banniere-reves.jpg
+images/banniere-reves.png
+
 # Outils locaux Claude Code / aperçu
 .claude/
 
