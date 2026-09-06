@@ -141,7 +141,7 @@ $navActuel = 'accueil';
 
   <!-- ===== Bannière ===== -->
   <section class="banner">
-    <img src="images/banniere-reves.jpg" alt="Le flower truck au coucher du soleil — Crois en tes rêves et ils se réaliseront" data-fallback="🌅🚚">
+    <img src="images/banniere-reves.png" alt="Le flower truck au coucher du soleil — Crois en tes rêves et ils se réaliseront" data-fallback="🌅🚚">
   </section>
 
   <!-- ===== Commandes ===== -->
