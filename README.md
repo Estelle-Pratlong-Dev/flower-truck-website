@@ -57,7 +57,7 @@ Le contenu, certaines fonctionnalités et l'identité visuelle pourront encore �
 
 Une version de démonstration du site est disponible en ligne :
 
-👉 **[Voir le site](https://manalex-fleurs.estelle-pratlong.fr/)**
+👉 **[Voir le site](http://manalex-flowerstruck.fr/)**
 
 ## À propos
 
