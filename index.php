@@ -126,7 +126,7 @@ $navActuel = 'accueil';
         <?php for ($tour = 0; $tour < 2; $tour++): ?>
         <div class="carousel__group" <?= $tour ? 'aria-hidden="true"' : '' ?>>
           <?php foreach ($photosCarrousel as $p): ?>
-          <a href="galerie.php"><img src="images/galerie/<?= rawurlencode($p) ?>" alt="Création florale Manalex Flowers Truck" loading="lazy"></a>
+          <a href="galerie.php"><img src="images/galerie/<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy"></a>
           <?php endforeach; ?>
         </div>
         <?php endfor; ?>

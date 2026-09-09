@@ -37,7 +37,7 @@ $navActuel = 'galerie';
         <?php foreach ($photos as $p): ?>
         <figure class="reveal">
           <button class="gallery__zoom" type="button" aria-label="Agrandir la photo">
-            <img src="images/galerie/<?= rawurlencode($p) ?>" alt="Création florale Manalex Flowers Truck" loading="lazy">
+            <img src="images/galerie/<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy">
           </button>
         </figure>
         <?php endforeach; ?>
