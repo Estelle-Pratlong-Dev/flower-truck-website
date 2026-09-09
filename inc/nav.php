@@ -6,7 +6,7 @@ $prefixeAncre = $navActuel === 'accueil' ? '#' : 'index.php#';
 ?>
 <header class="nav" id="top">
   <a class="nav__brand" href="<?= $navActuel === 'accueil' ? '#top' : 'index.php' ?>">
-    <span class="nav__logo">Manalex Fleurs</span>
+    <span class="nav__logo">Manalex Flowers Truck</span>
   </a>
   <nav class="nav__links" id="navLinks">
     <a href="<?= $prefixeAncre ?>concept">Le concept</a>

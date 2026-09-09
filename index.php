@@ -10,8 +10,8 @@ $navActuel = 'accueil';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manalex Fleurs — Flowers Truck | Fleuriste ambulante en Cévennes</title>
-  <meta name="description" content="Manalex Fleurs, le flower truck qui sillonne les marchés des Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales faites avec passion. Retrouvez-moi à Gagnières, Bessèges, Molières-sur-Cèze et Bordezac !">
+  <title>Manalex Flowers Truck | Fleuriste ambulante en Cévennes</title>
+  <meta name="description" content="Manalex Flowers Truck, le flower truck qui sillonne les marchés des Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales faites avec passion. Retrouvez-moi à Gagnières, Bessèges, Molières-sur-Cèze et Bordezac !">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -32,8 +32,7 @@ $navActuel = 'accueil';
     </div>
 
     <p class="hero__kicker">Fleuriste ambulante &middot; Cévennes</p>
-    <h1 class="hero__title">Manalex <span>Fleurs</span></h1>
-    <p class="hero__subtitle">— Flowers Truck —</p>
+    <h1 class="hero__title">Manalex <span>Flowers Truck</span></h1>
     <p class="hero__tagline">Des fleurs, des couleurs, de la bonne humeur<br>et beaucoup de passion&nbsp;!</p>
     <div class="hero__cta">
       <a class="btn btn--primary" href="#planning">🌼 Où me retrouver cette semaine&nbsp;?</a>
@@ -55,13 +54,13 @@ $navActuel = 'accueil';
   <section class="section concept reveal" id="concept">
     <div class="section__inner concept__grid">
       <figure class="concept__photo">
-        <img src="images/camion.jpg" alt="Le camion fleuri de Manalex Fleurs, ouvert sur un marché" data-fallback="🚚🌷">
+        <img src="images/camion-optimisee.webp" alt="Le camion fleuri de Manalex Flowers Truck, ouvert sur un marché" data-fallback="🚚🌷">
         <figcaption>Le camion vous attend sur les marchés&nbsp;!</figcaption>
       </figure>
       <div class="concept__text">
         <p class="section__kicker">Le concept</p>
         <h2 class="section__title">Un camion, des fleurs,<br>et beaucoup d'amour</h2>
-        <p>Bienvenue chez <strong>Manalex Fleurs</strong>&nbsp;! Au volant de mon flower truck, je sillonne les marchés des Cévennes pour vous proposer <strong>des fleurs fraîches, des bouquets de saison, des plantes et des créations florales</strong> faites avec passion.</p>
+        <p>Bienvenue chez <strong>Manalex Flowers Truck</strong>&nbsp;! Au volant de mon flower truck, je sillonne les marchés des Cévennes pour vous proposer <strong>des fleurs fraîches, des bouquets de saison, des plantes et des créations florales</strong> faites avec passion.</p>
         <p>Venez découvrir mes créations, repartir avec un peu de couleur… et surtout passer un moment <em>convivial</em>&nbsp;!</p>
         <ul class="concept__points">
           <li><span>🌷</span> Compositions florales sur mesure</li>
@@ -83,6 +82,11 @@ $navActuel = 'accueil';
       <div class="planning__grid">
         <article class="card reveal">
           <div class="card__icon">🏛️</div>
+          <p class="card__day">Mardi matin</p>
+          <h3 class="card__place">Parking pharmacie Robiac</h3>
+        </article>
+	 	<article class="card reveal">
+          <div class="card__icon">🏛️</div>
           <p class="card__day">Mercredi matin</p>
           <h3 class="card__place">Marché de Gagnières</h3>
         </article>
@@ -91,11 +95,6 @@ $navActuel = 'accueil';
           <p class="card__day">Jeudi matin</p>
           <h3 class="card__place">Marché de Bessèges</h3>
         </article>
-        <article class="card card--soir reveal">
-          <div class="card__icon">✨</div>
-          <p class="card__day">Jeudi soir</p>
-          <h3 class="card__place">Guinguette de La Carabiole</h3>
-        </article>
         <article class="card reveal">
           <div class="card__icon">🏛️</div>
           <p class="card__day">Vendredi matin</p>
@@ -103,8 +102,8 @@ $navActuel = 'accueil';
         </article>
         <article class="card reveal">
           <div class="card__icon">🏛️</div>
-          <p class="card__day">Dimanche matin</p>
-          <h3 class="card__place">Place de la Mairie, Bordezac</h3>
+          <p class="card__day">Samedi matin</p>
+          <h3 class="card__place">Marché de Génolhac</h3>
         </article>
       </div>
 
@@ -127,7 +126,7 @@ $navActuel = 'accueil';
         <?php for ($tour = 0; $tour < 2; $tour++): ?>
         <div class="carousel__group" <?= $tour ? 'aria-hidden="true"' : '' ?>>
           <?php foreach ($photosCarrousel as $p): ?>
-          <a href="galerie.php"><img src="images/galerie/<?= rawurlencode($p) ?>" alt="Création florale Manalex Fleurs" loading="lazy"></a>
+          <a href="galerie.php"><img src="images/galerie/<?= rawurlencode($p) ?>" alt="Création florale Manalex Flowers Truck" loading="lazy"></a>
           <?php endforeach; ?>
         </div>
         <?php endfor; ?>
@@ -149,7 +148,7 @@ $navActuel = 'accueil';
     <div class="section__inner commande__box">
       <h2 class="commande__title">Une envie particulière&nbsp;?</h2>
       <p>Mariage, anniversaire, événement, ou simplement l'envie de faire plaisir&nbsp;: je réalise vos <strong>compositions sur commande</strong>. Passez me voir sur un marché ou contactez-moi&nbsp;!</p>
-      <a class="btn btn--primary" href="#contact">Me contacter 💌</a>
+      <a class="btn btn--primary" href="mailto:manalex.flowerstruck@gmail.com?subject=Demande%20de%20cr%C3%A9ation%20florale">Me contacter 💌</a>
     </div>
   </section>
 
