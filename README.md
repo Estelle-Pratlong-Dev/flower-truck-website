@@ -1,4 +1,4 @@
-# Manalex Fleurs — Site vitrine pour un Flower Truck
+# Manalex Flowers Truck — Site vitrine
 
 Site vitrine conçu pour présenter l'activité d'un flower truck itinérant et mettre en valeur ses créations florales.
 
@@ -6,7 +6,7 @@ Site vitrine conçu pour présenter l'activité d'un flower truck itinérant et 
 
 ## Le projet
 
-Manalex Fleurs est un site vitrine destiné à une professionnelle ayant développé une activité de flower truck.
+Manalex Flowers Truck est un site vitrine destiné à une professionnelle ayant développé une activité de flower truck.
 
 L'objectif est de proposer une présence en ligne cohérente avec l'univers de l'activité : une identité visuelle douce et champêtre, une présentation du concept, les différents lieux de présence du flower truck ainsi qu'une galerie permettant de mettre en valeur les créations florales.
 
