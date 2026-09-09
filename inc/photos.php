@@ -6,9 +6,29 @@
 // ne pas dupliquer cette logique à plusieurs endroits.
 $dossierGalerie = __DIR__ . '/../images/galerie';
 $fichierOrdre = __DIR__ . '/ordre-galerie.json';
+$fichierDescriptions = __DIR__ . '/descriptions-galerie.json';
 
 function enregistrerOrdreGalerie($fichierOrdre, $ordre) {
   file_put_contents($fichierOrdre, json_encode(array_values($ordre), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+}
+
+// Descriptions (texte alternatif) par photo : { "fichier.jpg": "description" }.
+function chargerDescriptionsGalerie($fichierDescriptions) {
+  if (!file_exists($fichierDescriptions)) {
+    return [];
+  }
+  $contenu = json_decode(file_get_contents($fichierDescriptions), true);
+  return is_array($contenu) ? $contenu : [];
+}
+
+function enregistrerDescriptionsGalerie($fichierDescriptions, $descriptions) {
+  file_put_contents($fichierDescriptions, json_encode($descriptions, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+}
+
+// Texte alternatif d'une photo : la description saisie, ou un texte par défaut.
+function descriptionPhoto($descriptions, $fichier) {
+  $texte = trim($descriptions[$fichier] ?? '');
+  return $texte !== '' ? $texte : 'Création florale Manalex Flowers Truck';
 }
 
 $photosSurDisque = array_values(array_filter(scandir($dossierGalerie), function ($f) {
@@ -30,3 +50,5 @@ usort($photosNouvelles, function ($a, $b) use ($dossierGalerie) {
 });
 
 $photos = array_merge($photosNouvelles, $photosClassees);
+
+$descriptions = chargerDescriptionsGalerie($fichierDescriptions);

@@ -72,6 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'ajout
       // La nouvelle photo apparaît en premier dans la galerie.
       array_unshift($photos, $resultat['fichier']);
       enregistrerOrdreGalerie($fichierOrdre, $photos);
+      // Description (texte alternatif) saisie au moment de l'ajout.
+      $description = trim($_POST['description'] ?? '');
+      if ($description !== '') {
+        $descriptions[$resultat['fichier']] = mb_substr($description, 0, 150);
+        enregistrerDescriptionsGalerie($fichierDescriptions, $descriptions);
+      }
       adminDefinirMessage('Photo ajoutée avec succès !', 'succes');
     }
   }
@@ -89,9 +95,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'suppr
     if (in_array($fichier, $photos, true) && unlink("$dossierGalerie/$fichier")) {
       $photos = array_values(array_diff($photos, [$fichier]));
       enregistrerOrdreGalerie($fichierOrdre, $photos);
+      if (isset($descriptions[$fichier])) {
+        unset($descriptions[$fichier]);
+        enregistrerDescriptionsGalerie($fichierDescriptions, $descriptions);
+      }
       adminDefinirMessage('Photo supprimée.', 'succes');
     } else {
       adminDefinirMessage("Impossible de supprimer cette photo (elle n'existe peut-être plus).", 'erreur');
+    }
+  }
+  header('Location: admin.php');
+  exit;
+}
+
+// ----- Modification de la description (texte alternatif) d'une photo -----
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'decrire') {
+  if (!adminJetonCsrfValide($_POST['csrf'] ?? '')) {
+    adminDefinirMessage('Session expirée, merci de réessayer.', 'erreur');
+  } else {
+    require __DIR__ . '/inc/photos.php';
+    $fichier = basename($_POST['fichier'] ?? '');
+    if (in_array($fichier, $photos, true)) {
+      $description = trim($_POST['description'] ?? '');
+      if ($description === '') {
+        unset($descriptions[$fichier]);
+      } else {
+        $descriptions[$fichier] = mb_substr($description, 0, 150);
+      }
+      enregistrerDescriptionsGalerie($fichierDescriptions, $descriptions);
+      adminDefinirMessage('Description enregistrée.', 'succes');
     }
   }
   header('Location: admin.php');
@@ -175,7 +207,16 @@ $dernierIndex = count($photos) - 1;
       <form method="post" enctype="multipart/form-data">
         <input type="hidden" name="action" value="ajouter">
         <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
-        <input type="file" name="photo" accept="image/jpeg,image/png,image/webp" required>
+        <label class="admin-champ">
+          Photo
+          <input type="file" name="photo" accept="image/jpeg,image/png,image/webp" required>
+        </label>
+        <label class="admin-champ">
+          Description de la photo
+          <input type="text" name="description" maxlength="150"
+            placeholder="Ex. : Bouquet rond aux tons roses et pêche avec eucalyptus">
+          <small class="admin-champ__aide">Décrivez la photo en quelques mots : c'est utile pour les personnes malvoyantes et pour le référencement Google.</small>
+        </label>
         <button class="btn btn--primary" type="submit">Ajouter</button>
       </form>
     </section>
@@ -189,7 +230,17 @@ $dernierIndex = count($photos) - 1;
       <div class="admin-grid">
         <?php foreach ($photos as $i => $p): ?>
         <figure class="admin-grid__item">
-          <img src="images/galerie/<?= rawurlencode($p) ?>" alt="" loading="lazy">
+          <img src="images/galerie/<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy">
+          <form method="post" class="admin-grid__desc">
+            <input type="hidden" name="action" value="decrire">
+            <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
+            <input type="hidden" name="fichier" value="<?= htmlspecialchars($p) ?>">
+            <input type="text" name="description" maxlength="150"
+              value="<?= htmlspecialchars($descriptions[$p] ?? '') ?>"
+              title="<?= htmlspecialchars($descriptions[$p] ?? '') ?>"
+              placeholder="Ex. : Bouquet rond aux tons roses et pêche">
+            <button class="btn-icone" type="submit" aria-label="Enregistrer la description" title="Enregistrer la description">💾</button>
+          </form>
           <div class="admin-grid__actions">
             <form method="post">
               <input type="hidden" name="action" value="monter">

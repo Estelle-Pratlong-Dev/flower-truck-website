@@ -779,9 +779,63 @@ img { max-width: 100%; display: block; }
 }
 .admin-upload form {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.4rem;
+  align-items: stretch;
+}
+
+.admin-champ {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--olive-deep);
+}
+.admin-champ input {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(60, 56, 51, 0.3);
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 400;
+  font-size: 1.05rem;
+}
+.admin-champ input[type="file"] {
+  padding: 0.75rem 1rem;
+  background: var(--cream);
+  cursor: pointer;
+}
+.admin-champ input:focus {
+  outline: none;
+  border-color: var(--rose-deep);
+  box-shadow: 0 0 0 3px rgba(196, 86, 94, 0.15);
+}
+/* Le texte d'aide passe à la ligne, sous le champ */
+.admin-champ__aide {
+  display: block;
+  font-weight: 400;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(60, 56, 51, 0.65);
+}
+.admin-upload .btn {
+  align-self: flex-start;
+}
+
+.admin-grid__desc {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.8rem 0.8rem 0;
+}
+.admin-grid__desc input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid rgba(60, 56, 51, 0.3);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.9rem;
 }
 
 .admin-grid {
