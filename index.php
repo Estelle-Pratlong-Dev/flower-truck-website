@@ -10,6 +10,7 @@ $navActuel = 'accueil';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="7EWHMoUUh2GvGc3e200hOjWI3BV7_urxE7fsCWSKln8">
   <title>Manalex Flowers Truck | Fleuriste ambulante en Cévennes</title>
   <meta name="description" content="Manalex Flowers Truck, le flower truck qui sillonne les marchés des Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales faites avec passion. Retrouvez-moi à Gagnières, Bessèges, Molières-sur-Cèze et Bordezac !">
   <link rel="canonical" href="https://manalex-flowerstruck.fr/">
