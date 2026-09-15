@@ -92,7 +92,7 @@ $navActuel = 'accueil';
   <section class="section concept reveal" id="concept">
     <div class="section__inner concept__grid">
       <figure class="concept__photo">
-        <img src="images/camion-optimisee.webp" alt="Le camion fleuri de Manalex Flowers Truck, ouvert sur un marché" width="1024" height="1536" loading="lazy" decoding="async" data-fallback="🚚🌷">
+        <img src="images/camion-optimisee.webp" alt="Le camion fleuri de Manalex Flowers Truck, ouvert sur un marché" loading="lazy" decoding="async" data-fallback="🚚🌷">
         <figcaption>Le camion vous attend sur les marchés&nbsp;!</figcaption>
       </figure>
       <div class="concept__text">
@@ -178,7 +178,7 @@ $navActuel = 'accueil';
 
   <!-- ===== Bannière ===== -->
   <section class="banner">
-    <img src="images/banniere-reves.webp" alt="Le flower truck au coucher du soleil — Crois en tes rêves et ils se réaliseront" width="1254" height="1254" loading="lazy" decoding="async" data-fallback="🌅🚚">
+    <img src="images/banniere-reves.webp" alt="Le flower truck au coucher du soleil — Crois en tes rêves et ils se réaliseront" loading="lazy" decoding="async" data-fallback="🌅🚚">
   </section>
 
   <!-- ===== Commandes ===== -->
