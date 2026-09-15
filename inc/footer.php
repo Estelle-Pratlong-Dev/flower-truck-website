@@ -23,7 +23,12 @@
       </ul>
     </div>
   </div>
-  <p class="footer__bottom">🌿 Soutenons le local — merci&nbsp;! 🌿<br><small>© 2026 Manalex Flowers Truck</small></p>
-  <p class="footer__credit">Site réalisé par <a href="https://estelle-pratlong.fr/" target="_blank" rel="noopener noreferrer">Estelle Pratlong</a></p>
-  <p class="footer__credit"><a href="mentions-legales.php">Mentions légales</a></p>
+  <p class="footer__bottom">🌿 Soutenons le local — merci&nbsp;! 🌿</p>
+  <p class="footer__legal">
+    <span>© 2026 Manalex Flowers Truck</span>
+    <span class="footer__sep" aria-hidden="true">·</span>
+    <span>Site réalisé par <a href="https://estelle-pratlong.fr/" target="_blank" rel="noopener noreferrer">Estelle Pratlong</a></span>
+    <span class="footer__sep" aria-hidden="true">·</span>
+    <a href="mentions-legales.php">Mentions légales</a>
+  </p>
 </footer>

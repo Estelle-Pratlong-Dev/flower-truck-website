@@ -19,12 +19,14 @@ Options -Indexes
     Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:;"
 </IfModule>
 
-# Forcer HTTPS (production uniquement - commenter en local)
-# <IfModule mod_rewrite.c>
-#     RewriteEngine On
-#     RewriteCond %{HTTPS} off
-#     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# </IfModule>
+# Forcer HTTPS en production (ignore localhost et les domaines .test de Laragon)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !=localhost
+    RewriteCond %{HTTP_HOST} !\.test$ [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
 
 # Bloquer l'accès direct aux fichiers sensibles
 <FilesMatch "^(config\.php|composer\.(json|lock)|\.env)$">
