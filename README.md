@@ -2,7 +2,7 @@
 
 Site vitrine conçu pour présenter l'activité d'un flower truck itinérant et mettre en valeur ses créations florales.
 
-> 🌸 Projet pour une professionnelle — en cours
+> 🌸 Projet pour une professionnelle — en ligne
 
 ## Le projet
 
@@ -22,6 +22,9 @@ Le projet est actuellement en cours et doit encore évoluer en fonction des beso
 - Navigation responsive
 - Adaptation mobile et tablette
 - Galerie alimentée dynamiquement en PHP
+- Espace d'administration sécurisé (ajout, ordre et description des photos)
+- Optimisation du référencement (SEO) et des performances
+- Page d'erreur 404 personnalisée
 
 ## Galerie dynamique
 
@@ -45,19 +48,19 @@ La première version du projet a été réalisée avec l'assistance d'outils d'i
 
 L'IA est utilisée comme outil de prototypage et d'aide au développement. Le site est ensuite adapté aux besoins de l'activité et a vocation à évoluer en fonction des échanges et retours de sa future utilisatrice.
 
+L'intelligence artificielle m'a notamment accompagnée sur les notions de **référencement (SEO)** : données structurées (Schema.org), balises Open Graph, configuration de Google Search Console, sitemap et optimisation des performances (score PageSpeed).
+
 ## Statut
 
-🚧 **Projet en cours**
+✅ **Site en ligne**
 
-Une première proposition du site a été réalisée et présentée sous forme d'aperçus.
-
-Le contenu, certaines fonctionnalités et l'identité visuelle pourront encore évoluer avant une éventuelle mise en production.
+Le site est désormais en production et accessible en HTTPS. Le contenu et les créations continueront d'évoluer au fil de l'activité.
 
 ## Démonstration
 
 Une version de démonstration du site est disponible en ligne :
 
-👉 **[Voir le site](http://manalex-flowerstruck.fr/)**
+👉 **[Voir le site](https://manalex-flowerstruck.fr/)**
 
 ## À propos
 
@@ -67,4 +70,5 @@ Ce projet fait partie de mon portfolio et illustre notamment :
 - l'adaptation d'une interface à l'identité d'une activité professionnelle ;
 - le développement responsive ;
 - l'utilisation de PHP pour automatiser la gestion de contenus ;
-- l'utilisation de l'IA comme outil d'assistance au développement.
+- la prise en compte du référencement (SEO), de l'accessibilité et des performances ;
+- l'utilisation de l'IA comme outil d'assistance au développement et au référencement.
