@@ -20,14 +20,14 @@ $navActuel = 'mentions';
     <div class="section__inner">
       <h1 class="section__title">Mentions légales</h1>
 
-      <h2>Éditrice du site</h2>
+      <h2>Éditeur du site</h2>
       <p>
-        Aurélie CARRAT<br>
-        Statut : Micro-entreprise<br>
-        Adresse : 3B cité des Martines, 30160 Bordezac<br>
+        Aurélie CARRAT — Entrepreneur individuel (EI), sous le régime de la micro-entreprise<br>
+        3B cité des Martines, 30160 Bordezac<br>
+        SIREN : 103 308 979<br>
         SIRET : 103 308 979 00014<br>
         Téléphone : <a href="tel:+33622581230">06 22 58 12 30</a><br>
-        Email : <a href="mailto:manalex.flowerstruck@gmail.com">manalex.flowerstruck@gmail.com</a>
+        E-mail : <a href="mailto:manalex.flowerstruck@gmail.com">manalex.flowerstruck@gmail.com</a>
       </p>
 
       <h2>Hébergement</h2>
