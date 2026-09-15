@@ -493,6 +493,17 @@ img { max-width: 100%; display: block; }
   font-size: 1.2rem;
 }
 
+/* ---------- Page 404 ---------- */
+.erreur-404 { padding-bottom: 4rem; }
+.erreur-404__code {
+  font-family: var(--font-script);
+  font-size: clamp(4rem, 14vw, 8rem);
+  color: var(--rose-deep);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.erreur-404 .hero__cta { margin-top: 2rem; }
+
 .gallery--page {
   margin-top: 0;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));

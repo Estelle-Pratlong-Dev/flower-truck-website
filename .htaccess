@@ -1,6 +1,9 @@
 # Désactiver l'affichage du contenu des dossiers
 Options -Indexes
 
+# Page d'erreur 404 personnalisée
+ErrorDocument 404 /404.php
+
 # Headers de sécurité
 <IfModule mod_headers.c>
     # Empêche le chargement dans une iframe (clickjacking)
