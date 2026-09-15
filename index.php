@@ -50,12 +50,15 @@ $navActuel = 'accueil';
     ]
   }
   </script>
+  <link rel="preload" href="fonts/great-vibes-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
 </head>
 <body>
 
   <?php include __DIR__ . '/inc/nav.php'; ?>
+
+  <main>
 
   <!-- ===== Hero ===== -->
   <section class="hero">
@@ -89,7 +92,7 @@ $navActuel = 'accueil';
   <section class="section concept reveal" id="concept">
     <div class="section__inner concept__grid">
       <figure class="concept__photo">
-        <img src="images/camion-optimisee.webp" alt="Le camion fleuri de Manalex Flowers Truck, ouvert sur un marché" data-fallback="🚚🌷">
+        <img src="images/camion-optimisee.webp" alt="Le camion fleuri de Manalex Flowers Truck, ouvert sur un marché" width="1024" height="1536" loading="lazy" decoding="async" data-fallback="🚚🌷">
         <figcaption>Le camion vous attend sur les marchés&nbsp;!</figcaption>
       </figure>
       <div class="concept__text">
@@ -161,7 +164,7 @@ $navActuel = 'accueil';
         <?php for ($tour = 0; $tour < 2; $tour++): ?>
         <div class="carousel__group" <?= $tour ? 'aria-hidden="true"' : '' ?>>
           <?php foreach ($photosCarrousel as $p): ?>
-          <a href="galerie.php"><img src="images/galerie/<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy"></a>
+          <a href="galerie.php"<?= $tour ? ' tabindex="-1"' : '' ?>><img src="images/galerie/<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy"></a>
           <?php endforeach; ?>
         </div>
         <?php endfor; ?>
@@ -175,7 +178,7 @@ $navActuel = 'accueil';
 
   <!-- ===== Bannière ===== -->
   <section class="banner">
-    <img src="images/banniere-reves.webp" alt="Le flower truck au coucher du soleil — Crois en tes rêves et ils se réaliseront" data-fallback="🌅🚚">
+    <img src="images/banniere-reves.webp" alt="Le flower truck au coucher du soleil — Crois en tes rêves et ils se réaliseront" width="1254" height="1254" loading="lazy" decoding="async" data-fallback="🌅🚚">
   </section>
 
   <!-- ===== Commandes ===== -->
@@ -186,6 +189,8 @@ $navActuel = 'accueil';
       <a class="btn btn--primary" href="mailto:manalex.flowerstruck@gmail.com?subject=Demande%20de%20cr%C3%A9ation%20florale">Me contacter 💌</a>
     </div>
   </section>
+
+  </main>
 
   <?php include __DIR__ . '/inc/footer.php'; ?>
 
