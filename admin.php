@@ -31,7 +31,6 @@ if (!adminEstConnecte()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Connexion — Manalex Flowers Truck</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="admin-body">
@@ -65,20 +64,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'ajout
     adminDefinirMessage('Session expirée, merci de réessayer.', 'erreur');
   } else {
     require __DIR__ . '/inc/photos.php';
-    $resultat = adminAjouterPhoto($_FILES['photo'] ?? null, $dossierGalerie);
-    if ($resultat['erreur']) {
-      adminDefinirMessage($resultat['erreur'], 'erreur');
+    // La description est obligatoire : on la valide AVANT d'enregistrer la
+    // photo, pour ne jamais mettre en ligne une image sans texte alternatif.
+    $description = trim($_POST['description'] ?? '');
+    if ($description === '') {
+      adminDefinirMessage('Merci d’ajouter une description à la photo : elle est obligatoire (accessibilité et référencement).', 'erreur');
     } else {
-      // La nouvelle photo apparaît en premier dans la galerie.
-      array_unshift($photos, $resultat['fichier']);
-      enregistrerOrdreGalerie($fichierOrdre, $photos);
-      // Description (texte alternatif) saisie au moment de l'ajout.
-      $description = trim($_POST['description'] ?? '');
-      if ($description !== '') {
+      $resultat = adminAjouterPhoto($_FILES['photo'] ?? null, $dossierGalerie);
+      if ($resultat['erreur']) {
+        adminDefinirMessage($resultat['erreur'], 'erreur');
+      } else {
+        // La nouvelle photo apparaît en premier dans la galerie.
+        array_unshift($photos, $resultat['fichier']);
+        enregistrerOrdreGalerie($fichierOrdre, $photos);
         $descriptions[$resultat['fichier']] = mb_substr($description, 0, 150);
         enregistrerDescriptionsGalerie($fichierDescriptions, $descriptions);
+        adminDefinirMessage('Photo ajoutée avec succès !', 'succes');
       }
-      adminDefinirMessage('Photo ajoutée avec succès !', 'succes');
     }
   }
   header('Location: admin.php');
@@ -184,7 +186,6 @@ $dernierIndex = count($photos) - 1;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Gérer les créations — Manalex Flowers Truck</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="admin-body">
@@ -212,8 +213,8 @@ $dernierIndex = count($photos) - 1;
           <input type="file" name="photo" accept="image/jpeg,image/png,image/webp" required>
         </label>
         <label class="admin-champ">
-          Description de la photo
-          <input type="text" name="description" maxlength="150"
+          Description de la photo <span class="admin-champ__obligatoire" title="Champ obligatoire" aria-label="obligatoire">*</span>
+          <input type="text" name="description" maxlength="150" required
             placeholder="Ex. : Bouquet rond aux tons roses et pêche avec eucalyptus">
           <small class="admin-champ__aide">Décrivez la photo en quelques mots : c'est utile pour les personnes malvoyantes et pour le référencement Google.</small>
         </label>

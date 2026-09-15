@@ -12,9 +12,43 @@ $navActuel = 'accueil';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manalex Flowers Truck | Fleuriste ambulante en Cévennes</title>
   <meta name="description" content="Manalex Flowers Truck, le flower truck qui sillonne les marchés des Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales faites avec passion. Retrouvez-moi à Gagnières, Bessèges, Molières-sur-Cèze et Bordezac !">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://manalex-flowerstruck.fr/">
+
+  <!-- Aperçu lors du partage sur les réseaux (Facebook, Instagram, WhatsApp…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Manalex Flowers Truck">
+  <meta property="og:title" content="Manalex Flowers Truck | Fleuriste ambulante en Cévennes">
+  <meta property="og:description" content="Fleurs fraîches, bouquets de saison et créations florales sur les marchés des Cévennes, faites avec passion !">
+  <meta property="og:url" content="https://manalex-flowerstruck.fr/">
+  <meta property="og:image" content="https://manalex-flowerstruck.fr/images/camion.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Carte d'identité du commerce pour Google (invisible pour les visiteurs) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Florist",
+    "name": "Manalex Flowers Truck",
+    "image": "https://manalex-flowerstruck.fr/images/camion.jpg",
+    "description": "Fleuriste ambulante en Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales sur les marchés.",
+    "url": "https://manalex-flowerstruck.fr/",
+    "telephone": "+33622581230",
+    "email": "manalex.flowerstruck@gmail.com",
+    "areaServed": ["Gagnières", "Bessèges", "Molières-sur-Cèze", "Bordezac", "Robiac-Rochessadoule", "Génolhac", "Cévennes", "Gard"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bordezac",
+      "postalCode": "30160",
+      "addressRegion": "Gard",
+      "addressCountry": "FR"
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61587362490442",
+      "https://www.instagram.com/manalex.flowerstruck"
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
 </head>
