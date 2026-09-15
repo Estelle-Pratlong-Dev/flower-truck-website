@@ -44,11 +44,7 @@ Cette fonctionnalité permet de conserver un site simple tout en facilitant son 
 
 ## Développement assisté par IA
 
-La première version du projet a été réalisée avec l'assistance d'outils d'intelligence artificielle.
-
-L'IA est utilisée comme outil de prototypage et d'aide au développement. Le site est ensuite adapté aux besoins de l'activité et a vocation à évoluer en fonction des échanges et retours de sa future utilisatrice.
-
-L'intelligence artificielle m'a notamment accompagnée sur les notions de **référencement (SEO)** : données structurées (Schema.org), balises Open Graph, configuration de Google Search Console, sitemap et optimisation des performances (score PageSpeed).
+L'intelligence artificielle m'a accompagnée sur les notions de **référencement (SEO)** : données structurées (Schema.org), balises Open Graph, configuration de Google Search Console, sitemap et optimisation des performances (score PageSpeed).
 
 ## Statut
 
