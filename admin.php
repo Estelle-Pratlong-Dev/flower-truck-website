@@ -213,7 +213,7 @@ $dernierIndex = count($photos) - 1;
           <input type="file" name="photo" accept="image/jpeg,image/png,image/webp" required>
         </label>
         <label class="admin-champ">
-          Description de la photo <span class="admin-champ__obligatoire" title="Champ obligatoire" aria-label="obligatoire">*</span>
+          <span>Description de la photo <span class="admin-champ__obligatoire" title="Champ obligatoire" aria-label="obligatoire">*</span></span>
           <input type="text" name="description" maxlength="150" required
             placeholder="Ex. : Bouquet rond aux tons roses et pêche avec eucalyptus">
           <small class="admin-champ__aide">Décrivez la photo en quelques mots : c'est utile pour les personnes malvoyantes et pour le référencement Google.</small>
