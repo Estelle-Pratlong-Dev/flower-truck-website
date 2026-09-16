@@ -21,7 +21,7 @@ $navActuel = 'galerie';
   <meta property="og:url" content="https://manalex-flowerstruck.fr/galerie.php">
   <meta property="og:image" content="https://manalex-flowerstruck.fr/images/camion.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=<?= filemtime(__DIR__ . '/css/style.css') ?>">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
 </head>
 <body>
