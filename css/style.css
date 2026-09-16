@@ -53,6 +53,18 @@ body {
 img { max-width: 100%; display: block; }
 
 /* ---------- Boutons ---------- */
+/* Neutralise l'apparence native des <button> (Safari iOS/Android teintent
+   sinon les boutons non stylés en bleu par défaut). */
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
 .btn {
   display: inline-block;
   padding: 0.85rem 1.8rem;
