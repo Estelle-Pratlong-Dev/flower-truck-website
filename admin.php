@@ -1,6 +1,12 @@
 <?php
 require __DIR__ . '/inc/admin-auth.php';
 
+// Empêche le navigateur (notamment Safari iOS) de garder en cache une
+// ancienne version de cette page — sinon une mise à jour du formulaire
+// peut ne jamais apparaître tant que le cache n'est pas explicitement vidé.
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Pragma: no-cache');
+
 // ----- Déconnexion -----
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'deconnexion') {
   adminDeconnecter();
