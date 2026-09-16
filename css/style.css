@@ -803,6 +803,17 @@ button {
   font-size: 2rem;
 }
 
+/* .btn--ghost est conçu pour un fond clair (texte/bordure vert foncé) ;
+   ici le header est vert foncé, donc on inverse pour rester lisible. */
+.admin-header .btn--ghost {
+  border-color: var(--cream);
+  color: var(--cream);
+}
+.admin-header .btn--ghost:hover {
+  background: var(--cream);
+  color: var(--olive-deep);
+}
+
 .admin-main {
   max-width: 1080px;
   margin: 0 auto;
