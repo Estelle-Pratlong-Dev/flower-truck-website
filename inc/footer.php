@@ -9,7 +9,7 @@
       <ul class="footer__list">
         <li>📞 <a href="tel:+33622581230">06 22 58 12 30</a></li>
         <li>✉️ <a href="mailto:manalex.flowerstruck@gmail.com">manalex.flowerstruck@gmail.com</a></li>
-        <li>📍 Cévennes — Gard (30)</li>
+        <li>📍 Cévennes &amp; Gard (30) — Saint-Ambroix, Meyrannes, Bessèges…</li>
       </ul>
     </div>
     <div>

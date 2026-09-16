@@ -12,7 +12,7 @@ $navActuel = 'accueil';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="7EWHMoUUh2GvGc3e200hOjWI3BV7_urxE7fsCWSKln8">
   <title>Manalex Flowers Truck | Fleuriste ambulante en Cévennes</title>
-  <meta name="description" content="Manalex Flowers Truck, le flower truck qui sillonne les marchés des Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales faites avec passion. Retrouvez-moi à Gagnières, Bessèges, Molières-sur-Cèze et Bordezac !">
+  <meta name="description" content="Manalex Flowers Truck, le flower truck qui sillonne les marchés des Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales faites avec passion. Retrouvez-moi à Gagnières, Bessèges, Molières-sur-Cèze, Bordezac et dans le secteur de Saint-Ambroix et Meyrannes !">
   <link rel="canonical" href="https://manalex-flowerstruck.fr/">
 
   <!-- Aperçu lors du partage sur les réseaux (Facebook, Instagram, WhatsApp…) -->
@@ -36,7 +36,7 @@ $navActuel = 'accueil';
     "url": "https://manalex-flowerstruck.fr/",
     "telephone": "+33622581230",
     "email": "manalex.flowerstruck@gmail.com",
-    "areaServed": ["Gagnières", "Bessèges", "Molières-sur-Cèze", "Bordezac", "Robiac-Rochessadoule", "Génolhac", "Cévennes", "Gard"],
+    "areaServed": ["Gagnières", "Bessèges", "Molières-sur-Cèze", "Bordezac", "Robiac-Rochessadoule", "Génolhac", "Saint-Ambroix", "Meyrannes", "Cévennes", "Gard"],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Bordezac",
@@ -145,7 +145,7 @@ $navActuel = 'accueil';
         </article>
       </div>
 
-      <p class="planning__note">Le planning peut évoluer selon la saison et les événements — suivez-moi sur les réseaux pour les dernières infos&nbsp;!</p>
+      <p class="planning__note">Le planning peut évoluer selon la saison et les événements — suivez-moi sur les réseaux pour les dernières infos&nbsp;!<br>Fleuriste ambulante dans les Cévennes et le Gard, je réalise aussi vos compositions et livraisons sur le secteur de Saint-Ambroix, Meyrannes, Bessèges et la vallée de la Cèze.</p>
     </div>
   </section>
 
