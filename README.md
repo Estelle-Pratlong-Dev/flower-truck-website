@@ -1,70 +1,54 @@
 # Manalex Flowers Truck — Site vitrine
 
-Site vitrine conçu pour présenter l'activité d'un flower truck itinérant et mettre en valeur ses créations florales.
+Site vitrine pour une activité de **flower truck itinérant** dans les Cévennes : un site simple
+à faire vivre au quotidien, sans dépendre d'un prestataire pour publier une nouvelle création.
 
-> 🌸 Projet pour une professionnelle — en ligne
+🌐 **[Voir le site en ligne](https://manalex-flowerstruck.fr/)**
 
-## Le projet
+---
 
-Manalex Flowers Truck est un site vitrine destiné à une professionnelle ayant développé une activité de flower truck.
+## Le projet en bref
 
-L'objectif est de proposer une présence en ligne cohérente avec l'univers de l'activité : une identité visuelle douce et champêtre, une présentation du concept, les différents lieux de présence du flower truck ainsi qu'une galerie permettant de mettre en valeur les créations florales.
+La cliente vend ses créations florales sur les marchés et doit pouvoir **actualiser sa galerie
+de photos elle-même**, régulièrement et sans compétence technique, tout en gardant un site léger
+et rapide sur mobile — le principal canal utilisé par sa clientèle.
 
-Le projet est actuellement en cours et doit encore évoluer en fonction des besoins et des retours de sa future utilisatrice.
+Le parti pris technique : **du PHP simple, sans framework**, avec un espace d'administration
+dédié plutôt qu'un CMS générique, pour rester au plus près du seul besoin réel du site.
 
 ## Fonctionnalités
 
-- Présentation de l'activité et du concept
-- Présentation des différents services
-- Planning des marchés et événements
-- Galerie de créations
-- Carrousel automatique
-- Navigation responsive
-- Adaptation mobile et tablette
-- Galerie alimentée dynamiquement en PHP
-- Espace d'administration sécurisé (ajout, ordre et description des photos)
-- Optimisation du référencement (SEO) et des performances
-- Page d'erreur 404 personnalisée
+- **Page unique** présentant le concept, le planning des marchés et une galerie de créations.
+- **Espace d'administration dédié** : la cliente ajoute, réorganise et décrit ses photos depuis
+  une interface simple, sans toucher au code ni au FTP.
+- **Carrousel automatique** des créations en page d'accueil.
+- **Formulaires de contact directs** (téléphone, email, réseaux sociaux).
 
-## Galerie dynamique
+## Choix techniques notables
 
-La galerie a été pensée pour faciliter la mise à jour du site.
+- **Authentification maison sans base de données** : session PHP, mot de passe **haché**
+  (bcrypt), protection **CSRF** sur les actions sensibles — adapté à un usage mono-utilisatrice,
+  sans la charge d'une vraie gestion de comptes.
+- **Téléversement d'images validé** : type réel du fichier vérifié (pas seulement l'extension),
+  taille plafonnée, nom de fichier régénéré côté serveur.
+- **Content Security Policy stricte** (`style-src`/`script-src` sans `unsafe-inline`) : a
+  nécessité de repenser certains effets visuels (vitesse du carrousel) en CSS pur plutôt qu'en
+  style injecté, pour ne pas affaiblir la politique de sécurité.
+- **Référencement** soigné : données structurées (Schema.org), Open Graph, sitemap, page 404
+  personnalisée, et optimisation des performances (score PageSpeed).
+- **Accessibilité** : attributs ARIA sur les éléments décoratifs, alternatives textuelles
+  éditables pour chaque photo de la galerie.
 
-Les images présentes dans un répertoire dédié sont détectées automatiquement par PHP et intégrées à la galerie, permettant ainsi d'ajouter de nouvelles créations sans avoir à modifier directement le code HTML des pages.
+## Stack
 
-Cette fonctionnalité permet de conserver un site simple tout en facilitant son alimentation régulière en nouveaux contenus.
-
-## Stack technique
-
-- HTML5
-- CSS3
-- JavaScript
-- PHP
-- Git
+PHP « vanilla » (includes) · HTML5 · CSS3 · JavaScript sans dépendance · Git
 
 ## Développement assisté par IA
 
-L'intelligence artificielle m'a accompagnée sur les notions de **référencement (SEO)** : données structurées (Schema.org), balises Open Graph, configuration de Google Search Console, sitemap et optimisation des performances (score PageSpeed).
-
-## Statut
-
-✅ **Site en ligne**
-
-Le site est désormais en production et accessible en HTTPS. Le contenu et les créations continueront d'évoluer au fil de l'activité.
-
-## Démonstration
-
-Une version de démonstration du site est disponible en ligne :
-
-👉 **[Voir le site](https://manalex-flowerstruck.fr/)**
+L'IA a été utilisée comme outil d'assistance sur certains aspects (référencement, revue de code,
+accessibilité).
 
 ## À propos
 
-Ce projet fait partie de mon portfolio et illustre notamment :
-
-- la conception d'un site vitrine à partir d'un besoin réel ;
-- l'adaptation d'une interface à l'identité d'une activité professionnelle ;
-- le développement responsive ;
-- l'utilisation de PHP pour automatiser la gestion de contenus ;
-- la prise en compte du référencement (SEO), de l'accessibilité et des performances ;
-- l'utilisation de l'IA comme outil d'assistance au développement et au référencement.
+Ce projet fait partie de mon portfolio et illustre la conception d'un site vitrine complet — du
+front-end à un petit back-office sécurisé — à partir d'un besoin professionnel réel.
