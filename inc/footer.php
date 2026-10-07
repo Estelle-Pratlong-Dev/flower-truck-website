@@ -27,7 +27,7 @@
   <p class="footer__legal">
     <span>© 2026 Manalex Flowers Truck</span>
     <span class="footer__sep" aria-hidden="true">·</span>
-    <span>Site réalisé par <a href="https://estelle-pratlong.fr/" target="_blank" rel="noopener noreferrer">Estelle Pratlong</a></span>
+    <span>Site réalisé par <a href="https://dev.estelle-pratlong.fr/" target="_blank" rel="noopener noreferrer">Estelle Pratlong</a></span>
     <span class="footer__sep" aria-hidden="true">·</span>
     <a href="mentions-legales.php">Mentions légales</a>
   </p>
