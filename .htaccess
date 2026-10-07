@@ -4,6 +4,11 @@ Options -Indexes
 # Page d'erreur 404 personnalisée
 ErrorDocument 404 /404.php
 
+# Affiche notre page 404 pour les fichiers PHP inexistants.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule \.php$ /404.php [L]
+
 # Compression des fichiers texte (réduit le poids transféré)
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
