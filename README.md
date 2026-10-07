@@ -52,3 +52,15 @@ accessibilité).
 
 Ce projet fait partie de mon portfolio et illustre la conception d'un site vitrine complet — du
 front-end à un petit back-office sécurisé — à partir d'un besoin professionnel réel.
+
+## Licence
+
+© 2026 Estelle Pratlong — **Tous droits réservés**.
+
+Ce dépôt est publié uniquement à titre de démonstration (portfolio). Le code, la structure et le
+design **ne sont pas libres de droits** : toute reproduction, distribution, modification ou
+réutilisation, totale ou partielle, sans autorisation écrite préalable est **strictement interdite**.
+Voir le fichier [LICENSE](LICENSE) pour les détails.
+
+Les contenus liés à l'activité (nom, textes de présentation, photographies des créations) appartiennent
+à Manalex Flowers Truck / Aurélie Carrat.
