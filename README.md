@@ -39,6 +39,15 @@ dédié plutôt qu'un CMS générique, pour rester au plus près du seul besoin 
 - **Accessibilité** : attributs ARIA sur les éléments décoratifs, alternatives textuelles
   éditables pour chaque photo de la galerie.
 
+## Stockage des photos et sauvegardes
+
+Les fichiers gérés depuis l'administration sont séparés du code dans `storage/` : `galerie/` contient les photos envoyées depuis l'admin et `photos.json`, à la racine, relie pour chacune le nom du fichier, sa position et son texte alternatif. Les visuels fixes du site (hero, bannière de préfooter, icônes) restent dans `images/`.
+
+Ce dossier est exclu de Git et bloqué en accès direct. Les images sont envoyées au navigateur
+par `photo.php`. Il faut donc sauvegarder `storage/` régulièrement et le conserver
+à part lors des déploiements. Pour une nouvelle installation, créer ce dossier sur le serveur
+et y transférer le dossier `galerie/` et le fichier `photos.json` avant de mettre le nouveau code en ligne.
+
 ## Stack
 
 PHP « vanilla » (includes) · HTML5 · CSS3 · JavaScript sans dépendance · Git

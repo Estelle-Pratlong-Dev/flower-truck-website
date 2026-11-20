@@ -1,4 +1,5 @@
 <?php
+$collection = 'galerie';
 require __DIR__ . '/inc/photos.php';
 
 $navActuel = 'galerie';
@@ -45,7 +46,7 @@ $navActuel = 'galerie';
         <?php foreach ($photos as $p): ?>
         <figure class="reveal">
           <button class="gallery__zoom" type="button" aria-label="Agrandir la photo">
-            <img src="images/galerie/<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy">
+            <img src="photo.php?f=<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy">
           </button>
         </figure>
         <?php endforeach; ?>

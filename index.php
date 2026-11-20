@@ -1,4 +1,5 @@
 <?php
+$collection = 'galerie';
 require __DIR__ . '/inc/photos.php';
 // Le carrousel affiche les 12 dernières ; tout est sur la page galerie
 $photosCarrousel = array_slice($photos, 0, 12);
@@ -164,7 +165,7 @@ $navActuel = 'accueil';
         <?php for ($tour = 0; $tour < 2; $tour++): ?>
         <div class="carousel__group" <?= $tour ? 'aria-hidden="true"' : '' ?>>
           <?php foreach ($photosCarrousel as $p): ?>
-          <a href="galerie.php"<?= $tour ? ' tabindex="-1"' : '' ?>><img src="images/galerie/<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy"></a>
+          <a href="galerie.php"<?= $tour ? ' tabindex="-1"' : '' ?>><img src="photo.php?f=<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy"></a>
           <?php endforeach; ?>
         </div>
         <?php endfor; ?>

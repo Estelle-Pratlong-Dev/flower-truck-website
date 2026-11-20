@@ -1,6 +1,11 @@
 # Identifiants de la page d'administration (voir inc/admin-config.example.php)
 inc/admin-config.php
 
+# Photos et réglages de galerie gérés depuis l'administration, à sauvegarder à part
+/storage/*
+!/storage/.gitkeep
+/images/galerie/
+
 # Sources d'images lourdes / anciennes versions (gardées en local, pas besoin sur GitHub)
 images/banniere-reves.jpg
 images/banniere-reves.png

@@ -1,6 +1,12 @@
 # Désactiver l'affichage du contenu des dossiers
 Options -Indexes
 
+# Les photos et données de galerie ne sont accessibles qu'au travers de photo.php.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^storage(?:/|$) - [F,L]
+</IfModule>
+
 # Page d'erreur 404 personnalisée
 ErrorDocument 404 /404.php
 

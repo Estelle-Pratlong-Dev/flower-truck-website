@@ -237,7 +237,7 @@ $dernierIndex = count($photos) - 1;
       <div class="admin-grid">
         <?php foreach ($photos as $i => $p): ?>
         <figure class="admin-grid__item">
-          <img src="images/galerie/<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy">
+          <img src="photo.php?f=<?= rawurlencode($p) ?>" alt="<?= htmlspecialchars(descriptionPhoto($descriptions, $p)) ?>" loading="lazy">
           <form method="post" class="admin-grid__desc">
             <input type="hidden" name="action" value="decrire">
             <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">

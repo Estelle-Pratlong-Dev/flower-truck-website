@@ -1,54 +1,69 @@
 <?php
-// Liste les photos du dossier images/galerie/ dans l'ordre choisi depuis
-// l'admin (ordre-galerie.json). Une photo jamais classée (nouvel ajout,
-// ou déposée directement dans le dossier) apparaît en premier, la plus
-// récente d'abord. Utilisé par index.php, galerie.php et admin.php pour
-// ne pas dupliquer cette logique à plusieurs endroits.
-$dossierGalerie = __DIR__ . '/../images/galerie';
-$fichierOrdre = __DIR__ . '/ordre-galerie.json';
-$fichierDescriptions = __DIR__ . '/descriptions-galerie.json';
+// Charge les photos ajoutées depuis l'administration et leurs métadonnées.
+$dossierGalerie = __DIR__ . '/../storage/galerie';
+$fichierPhotos = __DIR__ . '/../storage/photos.json';
 
-function enregistrerOrdreGalerie($fichierOrdre, $ordre) {
-  file_put_contents($fichierOrdre, json_encode(array_values($ordre), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+if (!is_dir($dossierGalerie)) {
+  @mkdir($dossierGalerie, 0755, true);
 }
 
-// Descriptions (texte alternatif) par photo : { "fichier.jpg": "description" }.
-function chargerDescriptionsGalerie($fichierDescriptions) {
-  if (!file_exists($fichierDescriptions)) {
+function chargerEntreesPhotos($fichierPhotos) {
+  if (!is_file($fichierPhotos)) {
     return [];
   }
-  $contenu = json_decode(file_get_contents($fichierDescriptions), true);
-  return is_array($contenu) ? $contenu : [];
+  $entrees = json_decode(file_get_contents($fichierPhotos), true);
+
+  return is_array($entrees) ? $entrees : [];
 }
 
-function enregistrerDescriptionsGalerie($fichierDescriptions, $descriptions) {
-  file_put_contents($fichierDescriptions, json_encode($descriptions, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+function enregistrerOrdreGalerie($fichierPhotos, $ordre) {
+  global $descriptions;
+  $entrees = [];
+  foreach (array_values($ordre) as $position => $fichier) {
+    $entrees[] = [
+      'fichier' => $fichier,
+      'position' => $position + 1,
+      'texte' => $descriptions[$fichier] ?? '',
+    ];
+  }
+  file_put_contents($fichierPhotos, json_encode($entrees, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), LOCK_EX);
 }
 
-// Texte alternatif d'une photo : la description saisie, ou un texte par défaut.
+function chargerDescriptionsGalerie($fichierPhotos) {
+  $descriptions = [];
+  foreach (chargerEntreesPhotos($fichierPhotos) as $entree) {
+    if (isset($entree['fichier']) && is_string($entree['fichier'])) {
+      $descriptions[$entree['fichier']] = (string) ($entree['texte'] ?? '');
+    }
+  }
+
+  return $descriptions;
+}
+
+function enregistrerDescriptionsGalerie($fichierPhotos, $descriptions) {
+  global $photos;
+  enregistrerOrdreGalerie($fichierPhotos, $photos);
+}
+
 function descriptionPhoto($descriptions, $fichier) {
   $texte = trim($descriptions[$fichier] ?? '');
+
   return $texte !== '' ? $texte : 'Création florale Manalex Flowers Truck';
 }
 
-$photosSurDisque = array_values(array_filter(scandir($dossierGalerie), function ($f) {
+$fichiersGalerie = is_dir($dossierGalerie) ? (@scandir($dossierGalerie) ?: []) : [];
+$photosSurDisque = array_values(array_filter($fichiersGalerie, static function ($f) {
   return preg_match('/\.(jpe?g|png|webp)$/i', $f);
 }));
-
-$ordreEnregistre = [];
-if (file_exists($fichierOrdre)) {
-  $contenu = json_decode(file_get_contents($fichierOrdre), true);
-  $ordreEnregistre = is_array($contenu) ? $contenu : [];
-}
-
-// Photos déjà classées (qui existent toujours), puis les nouvelles.
+$entreesPhotos = chargerEntreesPhotos($fichierPhotos);
+usort($entreesPhotos, static fn ($a, $b) => ($a['position'] ?? PHP_INT_MAX) <=> ($b['position'] ?? PHP_INT_MAX));
+$ordreEnregistre = array_values(array_filter(array_column($entreesPhotos, 'fichier'), 'is_string'));
 $photosClassees = array_values(array_intersect($ordreEnregistre, $photosSurDisque));
 $photosNouvelles = array_values(array_diff($photosSurDisque, $ordreEnregistre));
-usort($photosNouvelles, function ($a, $b) use ($dossierGalerie) {
-  return filemtime("$dossierGalerie/$b") <=> filemtime("$dossierGalerie/$a")
-    ?: strnatcasecmp($a, $b);
+usort($photosNouvelles, static function ($a, $b) use ($dossierGalerie) {
+  return filemtime("$dossierGalerie/$b") <=> filemtime("$dossierGalerie/$a") ?: strnatcasecmp($a, $b);
 });
-
 $photos = array_merge($photosNouvelles, $photosClassees);
-
-$descriptions = chargerDescriptionsGalerie($fichierDescriptions);
+$descriptions = chargerDescriptionsGalerie($fichierPhotos);
+$fichierOrdre = $fichierPhotos;
+$fichierDescriptions = $fichierPhotos;
