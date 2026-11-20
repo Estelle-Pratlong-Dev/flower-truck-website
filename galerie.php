@@ -23,7 +23,8 @@ $navActuel = 'galerie';
   <meta property="og:image" content="https://manalex-flowerstruck.fr/images/camion.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/style.css?v=<?= filemtime(__DIR__ . '/css/style.css') ?>">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body>
 
@@ -70,3 +71,4 @@ $navActuel = 'galerie';
   <script src="js/galerie.js"></script>
 </body>
 </html>
+

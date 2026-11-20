@@ -38,6 +38,8 @@ if (!adminEstConnecte()) {
     <meta name="robots" content="noindex, nofollow">
     <title>Connexion — Manalex Flowers Truck</title>
     <link rel="stylesheet" href="css/style.css?v=<?= filemtime(__DIR__ . '/css/style.css') ?>">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   </head>
   <body class="admin-body">
     <main class="admin-login">
@@ -193,6 +195,8 @@ $dernierIndex = count($photos) - 1;
   <meta name="robots" content="noindex, nofollow">
   <title>Gérer les créations — Manalex Flowers Truck</title>
   <link rel="stylesheet" href="css/style.css?v=<?= filemtime(__DIR__ . '/css/style.css') ?>">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body class="admin-body">
 

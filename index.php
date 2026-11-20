@@ -13,7 +13,7 @@ $navActuel = 'accueil';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="7EWHMoUUh2GvGc3e200hOjWI3BV7_urxE7fsCWSKln8">
   <title>Manalex Flowers Truck | Fleuriste ambulante en Cévennes</title>
-  <meta name="description" content="Manalex Flowers Truck, le flower truck qui sillonne les marchés des Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales faites avec passion. Retrouvez-moi à Gagnières, Bessèges, Molières-sur-Cèze, Bordezac et dans le secteur de Saint-Ambroix et Meyrannes !">
+  <meta name="description" content="Manalex Flowers Truck, fleuriste ambulante dans les Cévennes et le Gard : bouquets frais, fleurs de saison et plantes sur les marchés autour de Gagnières et Bessèges.">
   <link rel="canonical" href="https://manalex-flowerstruck.fr/">
 
   <!-- Aperçu lors du partage sur les réseaux (Facebook, Instagram, WhatsApp…) -->
@@ -21,7 +21,7 @@ $navActuel = 'accueil';
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Manalex Flowers Truck">
   <meta property="og:title" content="Manalex Flowers Truck | Fleuriste ambulante en Cévennes">
-  <meta property="og:description" content="Fleurs fraîches, bouquets de saison et créations florales sur les marchés des Cévennes, faites avec passion !">
+  <meta property="og:description" content="Fleuriste ambulante dans les Cévennes et le Gard : bouquets frais, fleurs de saison et plantes sur les marchés autour de Gagnières et Bessèges.">
   <meta property="og:url" content="https://manalex-flowerstruck.fr/">
   <meta property="og:image" content="https://manalex-flowerstruck.fr/images/camion.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@ $navActuel = 'accueil';
     "@type": "Florist",
     "name": "Manalex Flowers Truck",
     "image": "https://manalex-flowerstruck.fr/images/camion.jpg",
-    "description": "Fleuriste ambulante en Cévennes : fleurs fraîches, bouquets de saison, plantes et créations florales sur les marchés.",
+    "description": "Fleuriste ambulante dans les Cévennes et le Gard, avec bouquets frais, fleurs de saison et plantes sur les marchés.",
     "url": "https://manalex-flowerstruck.fr/",
     "telephone": "+33622581230",
     "email": "manalex.flowerstruck@gmail.com",
@@ -53,7 +53,8 @@ $navActuel = 'accueil';
   </script>
   <link rel="preload" href="fonts/great-vibes-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css?v=<?= filemtime(__DIR__ . '/css/style.css') ?>">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body>
 
@@ -198,3 +199,4 @@ $navActuel = 'accueil';
   <script src="js/main.js"></script>
 </body>
 </html>
+
